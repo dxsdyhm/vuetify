@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons" rel="stylesheet">
+    <link href="https://unpkg.com/vuetify@2.0.0/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+
+<body>
+    <div id="app">
+        <v-app>
+            <v-container fluid px-0>
+                <v-checkbox v-model="checkbox" :label="`Checkbox 1: ${checkbox.toString()}`"></v-checkbox>
+                <v-radio-group v-model="radioGroup">
+                    <v-radio v-for="n in 3" :key="n" :label="`Radio ${n}`" :value="n"></v-radio>
+                </v-radio-group>
+                <v-switch v-model="switch1" :label="`Switch 1: ${switch1.toString()}`"></v-switch>
+            </v-container>
+
+            <v-container fluid>
+                <p>{{ selected }}</p>
+                <v-checkbox v-model="selected" color="red" label="John" value="John"></v-checkbox>
+                <v-checkbox v-model="selected" color="red" label="Jacob" value="Jacob"></v-checkbox>
+            </v-container>
+
+
+        </v-app>
+
+
+    </div>
+
+    <script src="https://unpkg.com/vue@2.6.10/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuetify@2.0.0/dist/vuetify.js"></script>
+    <script>
+        let vuetifyOptions = {}
+        Vue.use(Vuetify)
+        new Vue({
+            el: '#app',
+            vuetify: new Vuetify(vuetifyOptions),
+            data: {
+                selected: ['John'],
+                checkbox: true,
+                radioGroup: 1,
+                switch1: true,
+            }
+        })
+    </script>
+</body>
+
+</html>
